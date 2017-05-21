@@ -10,7 +10,7 @@ QuickHull = Extension(
 
 setup(
 	name = 'QuickHull',
-	version = '0.9.0',
+	version = '1.0.0',
 	description = 'QuickHull',
 	url = 'https://github.com/cprogrammer1994/QuickHull',
 	author = 'Szabolcs Dombi',

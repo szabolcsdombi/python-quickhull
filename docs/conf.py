@@ -13,8 +13,8 @@ project = 'QuickHull'
 copyright = '2017, Szabolcs Dombi'
 author = 'Szabolcs Dombi'
 
-version = '0.9.0'
-release = '0.9.0'
+version = '1.0.0'
+release = '1.0.0'
 
 language = None
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

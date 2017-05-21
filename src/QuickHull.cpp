@@ -1,6 +1,17 @@
 #include <Python.h>
 
+#include "quickhull/quickhull.hpp"
+
+using namespace quickhull;
+
 PyObject * meth_quick_hull(PyObject * self, PyObject * args) {
+	QuickHull<double> qh;
+	std::vector<Vector3<double>> pointCloud;
+
+	auto hull = qh.getConvexHull(pointCloud, true, false);
+	auto indexBuffer = hull.getIndexBuffer();
+	auto vertexBuffer = hull.getVertexBuffer();
+
 	return 0;
 }
 

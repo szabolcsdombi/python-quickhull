@@ -23,13 +23,20 @@ PyObject * meth_quick_hull(PyObject * self, PyObject * args) {
 
 	for (int i = 0; i < pointsSize; ++i) {
 		PyObject * xyz = PyTuple_GET_ITEM(points, i);
-		if (Py_TYPE(xyz) != &PyTuple_Type) {
+		if (Py_TYPE(xyz) != &PyTuple_Type || PyTuple_GET_SIZE(xyz) != 3) {
+			PyErr_Format(PyExc_Exception, "points[%d] must be a 3-tuple not %s", i, Py_TYPE(xyz)->tp_name);
 			return 0;
 		}
 
 		double x = PyFloat_AsDouble(PyTuple_GET_ITEM(xyz, 0));
 		double y = PyFloat_AsDouble(PyTuple_GET_ITEM(xyz, 1));
 		double z = PyFloat_AsDouble(PyTuple_GET_ITEM(xyz, 2));
+
+		if (PyErr_Occurred()) {
+			PyErr_Format(PyExc_Exception, "points[%d] is not a valid vertex", i);
+			return 0;
+		}
+
 		pointCloud.push_back(Vector3<double>(x, y, z));
 	}
 

@@ -2,8 +2,6 @@
 
 #include "quickhull/quickhull.hpp"
 
-using namespace quickhull;
-
 PyObject * meth_quick_hull(PyObject * self, PyObject * args) {
 	PyObject * points;
 	int ccw;
@@ -15,8 +13,8 @@ PyObject * meth_quick_hull(PyObject * self, PyObject * args) {
 		&ccw
 	);
 
-	QuickHull<double> qh;
-	std::vector<Vector3<double>> pointCloud;
+	quickhull::QuickHull<double> qh;
+	std::vector<quickhull::Vector3<double>> pointCloud;
 
 	int pointsSize = PyTuple_GET_SIZE(points);
 	pointCloud.reserve(pointsSize);
@@ -37,7 +35,7 @@ PyObject * meth_quick_hull(PyObject * self, PyObject * args) {
 			return 0;
 		}
 
-		pointCloud.push_back(Vector3<double>(x, y, z));
+		pointCloud.push_back(quickhull::Vector3<double>(x, y, z));
 	}
 
 	auto hull = qh.getConvexHull(pointCloud, ccw ? true : false, false);

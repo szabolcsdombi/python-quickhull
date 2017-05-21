@@ -4,6 +4,7 @@ QuickHull = Extension(
 	'QuickHull.hull',
 	sources = [
 		'src/QuickHull.cpp',
+		'src/quickhull/QuickHull.cpp',
 	]
 )
 

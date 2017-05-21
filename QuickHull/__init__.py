@@ -35,7 +35,9 @@ def quick_hull(points, ccw=True):
             tuple: vertices and triangles
 
         Example:
+
             Example input and output::
+
                 points = [
                     (0.0, 0.0, 0.0),
                     (0.0, 1.0, 0.0),

@@ -1,0 +1,15 @@
+**/python-embed
+**/__pycache__
+**/Temp
+**/build
+**/dist
+
+.tox
+.cache
+.vscode
+
+*.egg-info
+*.pyd
+*.pyc
+*.bat
+*.whl

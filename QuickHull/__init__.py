@@ -15,7 +15,7 @@ __all__ = ['quick_hull']
 
 
 if False:
-    def hull_quick_hull(*args) -> Tuple[List[Tuple[float, float, float]], List[int]]:
+    def hull_quick_hull(*args) -> Tuple[List[Tuple[float, float, float]], List[Tuple[int, int, int]]]:
         '''
             hull_quick_hull
         '''

@@ -56,14 +56,18 @@ PyObject * meth_quick_hull(PyObject * self, PyObject * args) {
 		PyList_SET_ITEM(vertexList, i, vertex);
 	}
 
-	PyObject * indexList = PyList_New(indexBufferSize);
+	int trianglesSize = indexBufferSize / 3;
+	PyObject * trianglesList = PyList_New(trianglesSize);
 
-	for (int i = 0; i < indexBufferSize; ++i) {
-		PyObject * index = PyLong_FromLong(indexBuffer[i]);
-		PyList_SET_ITEM(indexList, i, index);
+	for (int i = 0; i < trianglesSize; ++i) {
+		PyObject * a = PyLong_FromLong(indexBuffer[i * 3 + 0]);
+		PyObject * b = PyLong_FromLong(indexBuffer[i * 3 + 1]);
+		PyObject * c = PyLong_FromLong(indexBuffer[i * 3 + 2]);
+		PyObject * triangle = PyTuple_Pack(3, a, b, c);
+		PyList_SET_ITEM(trianglesList, i, triangle);
 	}
 
-	return PyTuple_Pack(2, vertexList, indexList);
+	return PyTuple_Pack(2, vertexList, trianglesList);
 }
 
 PyMethodDef methods[] = {

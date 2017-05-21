@@ -15,7 +15,10 @@ class TestCase(unittest.TestCase):
             (1, 1, 1),
         ]
 
-        vert, idx = QuickHull.quick_hull(points)
+        vertices, triangles = QuickHull.quick_hull(points)
+        
+        self.assertEqual(set(vertices), set(points))
+        self.assertEqual(len(triangles), 12)
 
 
 if __name__ == '__main__':

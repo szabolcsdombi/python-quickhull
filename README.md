@@ -1,2 +1,2 @@
 # QuickHull
-python binding for quickhull
+python binding for [quickhull](https://github.com/akuukka/quickhull)

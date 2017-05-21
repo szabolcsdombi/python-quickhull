@@ -66,6 +66,27 @@ def quick_hull(points, ccw=True):
                     (2, 0, 3),
                     (0, 1, 3),
                 ]
+
+            Merging output::
+
+                points = [
+                    (0.0, 0.0, 0.0),    # A
+                    (0.0, 0.0, 1.0),    # B
+                    (0.0, 1.0, 0.0),    # C
+                    (1.0, 0.0, 0.0),    # D
+                ]
+
+                vertices, triangles = QuickHull.quick_hull(points)
+                triangle_vertices = [(vertices[a], vertices[b], vertices[c]) for a, b, c in triangles]
+
+                # The output will be:
+
+                triangle_vertices = [
+                    ( (0.0, 1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0) ),    # C, D, B
+                    ( (0.0, 0.0, 1.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0) ),    # B, D, A
+                    ( (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 0.0) ),    # D, C, A
+                    ( (0.0, 1.0, 0.0), (0.0, 0.0, 1.0), (0.0, 0.0, 0.0) ),    # C, B, A
+                ]
     '''
 
     return hull.quick_hull(tuple(points), ccw)
